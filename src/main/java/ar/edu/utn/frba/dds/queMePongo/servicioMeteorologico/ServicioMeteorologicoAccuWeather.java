@@ -34,14 +34,14 @@ public class ServicioMeteorologicoAccuWeather implements ServicioMeteorologico {
     Map<String, Object> temperatura = (Map<String, Object>) weather.get("Temperature");
     return new RespuestaMeteorologica(
         new EstadoDelTiempo(
-            BigDecimal.valueOf(temperatura.get("Unit").equals("F") ? (Integer) temperatura.get("Value") * 5/9 : (Integer) temperatura.get("Value")),
+            BigDecimal.valueOf(temperatura.get("Unit").equals("F") ? (Integer) temperatura.get("Value") * 5L /9 : (Integer) temperatura.get("Value")),
             BigDecimal.valueOf((Integer) weather.get("Humidity"))),
         this.proximaExpiracion());
   }
 
   private Map<String, Object> consultarApi(String direccion) {
     try {
-      this.api.getWeather(direccion).get(0);
+      return this.api.getWeather(direccion).get(0);
     }
     catch (Exception exception) {
       throw new FalloConeccionConApiException(exception.getMessage());
