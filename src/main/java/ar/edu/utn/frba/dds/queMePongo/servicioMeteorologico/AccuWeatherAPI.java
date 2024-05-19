@@ -1,3 +1,5 @@
+package ar.edu.utn.frba.dds.queMePongo.servicioMeteorologico;
+
 import java.util.*;
 
 public final class AccuWeatherAPI {

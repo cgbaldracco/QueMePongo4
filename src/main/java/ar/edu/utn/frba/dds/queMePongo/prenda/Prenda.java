@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds.queMePongo.prenda;
 
+import java.math.BigDecimal;
+
 public class Prenda {
   private TipoPrenda tipoPrenda;
   private Material material;
@@ -81,5 +83,9 @@ public class Prenda {
 
   public Categoria obtenerCategoria() {
     return tipoPrenda.obtenerCategoria();
+  }
+
+  public Boolean aptaParaTemperatura(BigDecimal temperatura) {
+    return this.tipoPrenda.obtenerTemperaturaMaxima().compareTo(temperatura) >= 0;
   }
 }
